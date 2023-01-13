@@ -1,0 +1,10 @@
+
+
+  <div class="toolbar-main">
+    <mat-toolbar color="primary" class="flex-row justify-between">
+      <button class="lg-text"   *ngFor="let data of data " [routerLink]='data.link' mat-button>
+         {{data.name}}
+       </button>
+       <span class="example-spacer"></span>
+    </mat-toolbar>
+  </div>

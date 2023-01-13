@@ -1,0 +1,33 @@
+
+<div class="dialog-header flex-row justify-between">
+  <span class="align-center lg-text "> </span> <span class="lg-text" >Add Message</span
+  ><a class="close-btn" ><mat-icon class="close-icon" (click)="onClose()">close</mat-icon></a>
+</div>
+<div class="m-10  flex-col align-center justify-center ">
+ <form  [formGroup]="form" class="flex-col w-100" autocomplete="off">
+  <input type="hidden" formControlName="date" name="date" />
+  <div class="flex-grow flex-col m-10">
+    <mat-form-field appearance="outline" class="flex-row flex-grow">
+      <mat-label>Name</mat-label>
+      <input matInput required formControlName="name" name="name">
+      <mat-error *ngIf="hasError('name', 'required')"> Name is Required </mat-error>
+    </mat-form-field>
+  </div>
+ <div class="flex-grow flex-col m-10">
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea matInput required formControlName="message" name="message"></textarea>
+    <mat-error *ngIf="hasError('message', 'required')"> Message is Required </mat-error>
+  </mat-form-field>
+ </div>
+
+ </form>
+ <div  class="w-100">
+  <app-footer-buttons
+  class="action-content flex-row justify-between"
+        [buttons]="buttons"
+        (buttonClick)="onEmittedFooterButton($event)"
+  ></app-footer-buttons>
+ </div>
+</div>
+

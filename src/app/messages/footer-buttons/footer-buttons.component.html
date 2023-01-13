@@ -1,0 +1,27 @@
+
+<ng-container *ngFor="let button of buttons">
+  <ng-container *ngIf="!button?.hidden">
+    <ng-container [ngSwitch]="button.type">
+      <button
+        *ngSwitchDefault
+        [color]="button.color ? button.color : 'primary'"
+        mat-flat-button
+        [disabled]="button.disabled"
+        [ngClass]="button?.class"
+        (click)="onButtonClick(button)"
+      >
+        {{ button.title }}
+      </button>
+      <button
+        *ngSwitchCase="'stroked'"
+        [color]="button.color ? button.color : 'primary'"
+        mat-stroked-button
+        [disabled]="button.disabled"
+        [ngClass]="button?.class"
+        (click)="onButtonClick(button)"
+      >
+        {{ button.title }}
+      </button>
+    </ng-container>
+  </ng-container>
+</ng-container>
