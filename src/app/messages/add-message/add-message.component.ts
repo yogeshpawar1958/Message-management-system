@@ -45,7 +45,7 @@ export class AddMessageComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  formattedDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
+  formattedDate = formatDate(new Date().toLocaleString(), 'dd/MM/yyyy HH:mm:ss', 'en-US');
 
   createControls() {
     this.form = this.formBuilder.group({
