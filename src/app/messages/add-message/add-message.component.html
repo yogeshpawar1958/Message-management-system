@@ -29,5 +29,8 @@
         (buttonClick)="onEmittedFooterButton($event)"
   ></app-footer-buttons>
  </div>
+ <div class="flex-row justify-center align-center">
+  <mat-spinner mode="indeterminate" *ngIf="IsWait"></mat-spinner>
+</div>
 </div>
 

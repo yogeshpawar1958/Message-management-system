@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { FirebaseMessageService } from 'src/app/Services/firebase-message.service';
 import { loadMessages } from '../store/action/message.actions';
 import { MessageState } from '../store/reducer/message.reducer';
@@ -46,11 +46,20 @@ export class MessagesTableComponent implements OnInit, AfterViewInit {
     this.Messages$ = this.store.select(selectMessages);
     this.store.dispatch(loadMessages());
     this.IsWait = true;
-    this.Messages$.subscribe(
+    const temp=[]
+    this.Messages$.pipe((map((res:any)=>{
+      const msgArray = [];
+      for (const curr of res) {
+        msgArray.push({ ...curr,message:curr.message.substr(0,99) });
+      }
+      return msgArray;
+    }
+    ))).subscribe(
       (res) => {
         if (res) {
           this.openSnackBar('Records Fetch Successfully !!');
           this.IsWait = false;
+          console.log()
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.sort = this.sort;
         }

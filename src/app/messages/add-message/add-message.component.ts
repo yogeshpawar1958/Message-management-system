@@ -56,8 +56,17 @@ export class AddMessageComponent implements OnInit {
   }
 
   submitMessage() {
+    this.IsWait=true
     this.store.dispatch(addMessages(this.form.value));
-    this.openSnackBar('Added new Message Successfully !!');
+    this.msgService.addMessage(this.form.value).subscribe((res)=>{
+      console.log(res)
+      this.IsWait=false
+      this.openSnackBar('Added new Message Successfully !!');
+    },(error)=>{
+      this.IsWait=false
+      this.openSnackBar(`Error ${error}`);
+    })
+
     this.onClose();
   }
   openSnackBar(message: string) {
