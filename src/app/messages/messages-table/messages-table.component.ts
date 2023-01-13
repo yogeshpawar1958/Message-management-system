@@ -46,7 +46,6 @@ export class MessagesTableComponent implements OnInit, AfterViewInit {
     this.Messages$ = this.store.select(selectMessages);
     this.store.dispatch(loadMessages());
     this.IsWait = true;
-    const temp=[]
     this.Messages$.pipe((map((res:any)=>{
       const msgArray = [];
       for (const curr of res) {

@@ -7,3 +7,8 @@ th.mat-sort-header-sorted {
   overflow-y: scroll;
   border:1px solid black
 }
+
+.mat-column-message{
+  max-width: 200px !important;
+  min-width: 100px !important;
+}
