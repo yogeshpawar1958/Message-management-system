@@ -11,7 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-const modules=[
+const modules = [
   HttpClientModule,
   CommonModule,
   MatButtonModule,
@@ -23,11 +23,11 @@ const modules=[
   MatInputModule,
   MatIconModule,
   MatDialogModule,
-  MatToolbarModule
-]
+  MatToolbarModule,
+];
 @NgModule({
   declarations: [],
-  imports:modules,
-  exports:[...modules]
+  imports: modules,
+  exports: [...modules],
 })
-export class MaterialModule { }
+export class MaterialModule {}

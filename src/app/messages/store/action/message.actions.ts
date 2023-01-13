@@ -3,7 +3,7 @@ import { Message } from 'src/models';
 
 export const addMessages = createAction(
   '[Message] AddMessage Messages',
-  (message: Message) => ({message})
+  (message: Message) => ({ message })
 );
 
 export const addMessageSuccess = createAction(
@@ -16,8 +16,14 @@ export const addMessagesFailure = createAction(
   props<{ error: any }>()
 );
 
-export const  loadMessages=createAction('[message page] load messages');
+export const loadMessages = createAction('[message page] load messages');
 
-export const loadMessageSuccess=createAction('[Message] AddMessage Messages Success',props<{ messages: Message[] }>())
+export const loadMessageSuccess = createAction(
+  '[Message] AddMessage Messages Success',
+  props<{ messages: Message[] }>()
+);
 
-export const loadMessageError=createAction( '[Message] AddMessage Messages Error',props<{ messages: Message[] }>())
+export const loadMessageError = createAction(
+  '[Message] AddMessage Messages Error',
+  props<{ messages: Message[] }>()
+);

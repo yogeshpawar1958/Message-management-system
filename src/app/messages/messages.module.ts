@@ -15,7 +15,6 @@ import { MessagesTableComponent } from './messages-table/messages-table.componen
 import { MessagesComponent } from './messages/messages.component';
 import { messageEffects } from './store/effects/message.effects';
 import { messageFeatureKey, reducer } from './store/reducer/message.reducer';
-console.log("messages load")
 @NgModule({
   declarations: [
     MessagesComponent,

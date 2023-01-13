@@ -15,25 +15,20 @@ import { FirebaseMessageService } from './Services/firebase-message.service';
 import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     MaterialModule,
     MessagesModule,
     StoreDevtoolsModule.instrument({}),
     AngularFireModule.initializeApp(environment.firebase),
     StoreModule.forRoot(reducers, { metaReducers }),
-    // !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({})
+    StoreDevtoolsModule.instrument({}),
   ],
   providers: [FirebaseMessageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

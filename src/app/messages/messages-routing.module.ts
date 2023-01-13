@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
-  // {path:'/', Component:MessagesComponent}
   {path:'', component:MessagesComponent}
 ];
 
