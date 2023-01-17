@@ -49,23 +49,22 @@ export class MessagesTableComponent implements OnInit, AfterViewInit {
     this.Messages$.pipe((map((res:any)=>{
       const msgArray = [];
       for (const curr of res) {
-        msgArray.push({ ...curr,message:curr.message.substr(0,99) });
+        msgArray.push({ ...curr,message:curr.message.substr(0,100) });
       }
       return msgArray;
     }
     ))).subscribe(
-      (res) => {
+      (res:any) => {
         if (res) {
           this.openSnackBar('Records Fetch Successfully !!');
           this.IsWait = false;
-          console.log()
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.sort = this.sort;
         }
       },
       (error) => {
         this.IsWait = false;
-        this.openSnackBar('Http failure response');
+        this.openSnackBar(`Http failure response ${error}`);
       }
     );
   }

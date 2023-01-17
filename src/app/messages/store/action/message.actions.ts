@@ -25,5 +25,5 @@ export const loadMessageSuccess = createAction(
 
 export const loadMessageError = createAction(
   '[Message] AddMessage Messages Error',
-  props<{ messages: Message[] }>()
+  props<{ error: any }>()
 );
